@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		
+	// A 异步 J (JavaScript) A (and) X (XML) ; 
+
+	// 多项技术的结合体;
+
+	//1 有一个电话；
+
+	var ajax = new XMLHttpRequest();
+
+	//console.log(ajax);
+
+	// 2. 拨号;
+
+	ajax.open("GET","http://localhost/JavascriptAJAX/1713/data.php",true);
+
+	// 路径 => 接口!;
+
+	//POST 
+
+		// 1. 发送数据大小没有限制; 可以发送大文件; => 1G;
+		// 2. 接受数据 , 使用复杂 (复杂在请求头), 性能相较GET较差;
+		// 3. 安全性相对较高;
+
+	//GET
+
+		// 1. 发送数据大小限制在 2k左右;
+		// 2. 使用简单 , 性能好。
+		// 3. 安全性相对较低;
+	// 3. 喂;
+	ajax.send(); //发送; 不能漏写! 当成了必选参数!;
+
+	// 4.事件 => 异步!;
+
+	ajax.onreadystatechange = function(){ //当ajax状态码发生改变的时候会触发该事件;
+
+		//0  -（未初始化）还没有调用send()方法
+
+		//1  -（载入）已调用send()方法，正在发送请求
+
+		//2  -（载入完成）send()方法执行完成，已经接收到全部响应内容
+
+		//3  -（交互）正在解析响应内容
+
+		//4  -（完成）响应内容解析完成，可以在客户端调用了
+
+		//** 从状态2开始才能触发该事件;
+
+		// console.log(ajax.readyState);
+
+		if(ajax.readyState == 4 && ajax.status == 200){ //代表成功; 
+
+			console.log(ajax.responseText);
+
+		}
+
+
+		// http 状态码;
+
+		// 404 not found;
+
+
+
+
+	}
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>	
